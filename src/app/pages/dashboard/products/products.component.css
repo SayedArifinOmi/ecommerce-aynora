@@ -1,0 +1,5 @@
+mat-card { padding: 16px; }
+.header { display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
+.thumb { width:48px; height:48px; object-fit:cover; border-radius:6px; }
+table { width: 100%; }
+mat-paginator { margin-top: 8px; }

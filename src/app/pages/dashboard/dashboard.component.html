@@ -1,0 +1,69 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" opened class="sidenav">
+    <div class="logo">
+      <img src="assets/logo.png" alt="WatchStore Logo" />
+    </div>
+    <div class="tagline">Shop Smart, Live Better</div>
+
+    <mat-nav-list>
+      <a mat-list-item routerLink="home" routerLinkActive="active">Home</a>
+
+      <!-- Admin-only links -->
+      <ng-container *ngIf="profile?.role === 'Admin'">
+        <a mat-list-item routerLink="products" routerLinkActive="active">Products</a>
+        <a mat-list-item routerLink="orders" routerLinkActive="active">Orders</a>
+        <a mat-list-item routerLink="users" routerLinkActive="active">Users</a>
+        <a mat-list-item routerLink="admin-messages" routerLinkActive="active">Messages</a>
+      
+      </ng-container>
+
+      <a mat-list-item routerLink="cart" routerLinkActive="active">My Cart</a>
+      <!--<a mat-list-item routerLink="product-details" routerLinkActive="active">Product Details</a> -->
+      <a mat-list-item routerLink="my-orders" routerLinkActive="active">My Orders</a>
+      <a mat-list-item routerLink="profile" routerLinkActive="active">Profile</a>
+      <a mat-list-item routerLink="about-us" routerLinkActive="active">About Us</a>
+      <a mat-list-item routerLink="contact-us" routerLinkActive="active">Contact Us</a>
+    </mat-nav-list>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+    <!-- Dark mode toggle in sidenav -->
+    <div class="dark-mode-toggle">
+      <mat-slide-toggle
+        [checked]="isDarkMode"
+        (change)="toggleDarkMode($event)">
+        Dark Mode
+      </mat-slide-toggle>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="toolbar">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <!-- Search bar -->
+      <input matInput placeholder="Search products..." [(ngModel)]="searchText" (input)="onSearchChange()" />
+      <button *ngIf="searchText" matSuffix mat-icon-button (click)="clearSearch()">
+        <mat-icon>close</mat-icon>
+      </button>
+
+      <span class="spacer"></span>
+
+      <!-- User info -->
+      <mat-chip class="username-chip">{{ profile?.username }}</mat-chip>
+
+      <!-- Logout -->
+      <button mat-button (click)="logout()">Logout</button>
+    </mat-toolbar>
+
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,53 @@
+<div class="cart-container">
+  <h2 class="cart-title">Shopping Cart</h2>
+
+  <!-- Empty cart -->
+  <mat-card *ngIf="!items.length" class="empty-cart">
+    <mat-icon>shopping_cart</mat-icon>
+    <p>Your cart is empty. <a routerLink='/dashboard/home'>Shop now</a></p>
+  </mat-card>
+
+  <!-- Cart Items -->
+  <div *ngIf="items.length" class="cart-items">
+    <mat-card *ngFor="let it of items" class="cart-item">
+      <div class="item-image">
+        <img [src]="it.imageUrl" alt="{{ it.name }}" />
+      </div>
+      <div class="item-details">
+        <h3>{{ it.name }}</h3>
+        <p class="price"> ${{ it.price }} </p>
+
+        <mat-form-field appearance="outline" class="qty-field">
+          <mat-label>Qty</mat-label>
+          <input matInput type="number"
+                 [value]="it.quantity"
+                 min="1"
+                 [max]="it.stock"
+                 (change)="onQuantityChange(it, $event)" />
+        </mat-form-field>
+
+        <button mat-button color="warn" (click)="remove(it.productId)">
+          <mat-icon>delete</mat-icon> Remove
+        </button>
+      </div>
+      <div class="item-subtotal">
+        <p>Subtotal:</p>
+        <span>${{ it.price * it.quantity }}</span>
+      </div>
+    </mat-card>
+  </div>
+
+  <!-- Cart Summary -->
+  <mat-card *ngIf="items.length" class="cart-summary">
+    <h3>Order Summary</h3>
+    <p>Items: {{ items.length }}</p>
+    <p class="total">Total: ${{ total }}</p>
+
+    <button mat-raised-button color="primary" (click)="proceed()" class="checkout-btn">
+      Proceed to Checkout
+    </button>
+    <button mat-stroked-button color="warn" (click)="clear()" class="clear-btn">
+      Clear Cart
+    </button>
+  </mat-card>
+</div>

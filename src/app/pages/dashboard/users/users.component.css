@@ -1,0 +1,47 @@
+mat-card {
+  padding: 1rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+th.mat-header-cell {
+  background: #f5f7fa;
+  color: #333;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  padding: 12px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+td.mat-cell {
+  padding: 12px;
+  font-size: 0.95rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+tr.mat-row:hover {
+  background: #f9fafb;
+  transition: background 0.3s ease;
+}
+
+mat-select {
+  min-width: 120px;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+mat-option {
+  font-size: 0.9rem;
+}
+
+/* Optional zebra stripes */
+tr.mat-row:nth-child(even) {
+  background: #fcfcfc;
+}

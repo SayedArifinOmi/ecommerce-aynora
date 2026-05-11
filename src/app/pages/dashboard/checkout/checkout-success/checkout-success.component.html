@@ -1,0 +1,12 @@
+<div class="container mt-5 text-center">
+  <h2 class="text-success">✅ Payment Successful!</h2>
+  <p>Your order has been placed successfully.</p>
+
+  <div *ngIf="orderId">
+    <strong>Order ID:</strong> {{ orderId }}
+  </div>
+
+  <button class="btn btn-primary mt-3" (click)="goToOrders()">
+    View My Orders
+  </button>
+</div>

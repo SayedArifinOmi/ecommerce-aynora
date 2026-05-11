@@ -1,0 +1,50 @@
+<div class="contact-us-container">
+
+  <!-- Page Title -->
+  <h2 class="contact-title">Contact Us</h2>
+  <p class="contact-subtitle">
+    We’d love to hear from you! Fill out the form below or reach us through other means.
+  </p>
+
+  <div class="contact-content">
+
+    <!-- Contact Form Card -->
+    <div class="contact-card form-card">
+      <h3 class="card-title">Send Us a Message</h3>
+      <form [formGroup]="contactForm" (ngSubmit)="submit()">
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" type="email" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Subject</mat-label>
+          <input matInput formControlName="subject">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Message</mat-label>
+          <textarea matInput formControlName="message" rows="5" required></textarea>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="contactForm.invalid">
+          Send Message
+        </button>
+      </form>
+    </div>
+
+    <!-- Contact Info Card -->
+    <div class="contact-card info-card">
+      <h3 class="card-title">Other Ways to Reach Us</h3>
+      <p><span class="icon">📧</span> <strong>Email:</strong> aynora@gmail.com</p>
+      <p><span class="icon">📞</span> <strong>Phone:</strong> +8801709000936</p>
+      <p><span class="icon">📍</span> <strong>Address:</strong> Dhaka, Bangladesh</p>
+    </div>
+
+  </div>
+</div>

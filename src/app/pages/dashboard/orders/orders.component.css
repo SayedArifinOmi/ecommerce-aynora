@@ -1,0 +1,104 @@
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  font-family: Arial, sans-serif;
+  color: #111;
+}
+
+/* Heading */
+h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+/* Table styling */
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.table th, .table td {
+  padding: 12px 15px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.table th {
+  background-color: #f7f7f7;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #333;
+  border-bottom: 2px solid #ddd;
+}
+
+.table td {
+  font-size: 0.9rem;
+  border-bottom: 1px solid #eee;
+}
+
+.table tr:hover {
+  background-color: #f0f4f8;
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* List of items */
+.table td ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.table td ul li {
+  padding: 2px 0;
+}
+
+/* Status select */
+.form-select {
+  padding: 5px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.form-select:hover {
+  border-color: #888;
+}
+
+/* Table responsiveness */
+@media (max-width: 768px) {
+  .table thead {
+    display: none;
+  }
+
+  .table tr {
+    display: block;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.5rem;
+  }
+
+  .table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    width: 120px;
+    display: inline-block;
+  }
+}

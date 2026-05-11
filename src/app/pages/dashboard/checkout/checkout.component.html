@@ -1,0 +1,82 @@
+<div class="checkout-container">
+  <h2 class="checkout-title">Checkout</h2>
+
+  <!-- Empty Cart -->
+  <mat-card *ngIf="cartItems.length === 0" class="empty-checkout">
+    <mat-icon>remove_shopping_cart</mat-icon>
+    <p>Your cart is empty. <a routerLink="/products">Shop now</a></p>
+  </mat-card>
+
+  <!-- Desktop Table -->
+  <div class="desktop-view" *ngIf="cartItems.length > 0">
+    <table mat-table [dataSource]="cartItems" class="mat-elevation-z2 checkout-table">
+
+      <!-- Product Column (Image + Name) -->
+   <!-- Product Column -->
+<ng-container matColumnDef="product">
+  <th mat-header-cell *matHeaderCellDef> Product </th>
+  <td mat-cell *matCellDef="let it">
+    <div class="product-cell">
+      <img [src]="it.imageUrl " 
+           [alt]="it.name" class="product-img" />
+      <span class="product-name">{{ it.name }}</span>
+    </div>
+  </td>
+</ng-container>
+
+      <!-- Price -->
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Price </th>
+        <td mat-cell *matCellDef="let it"> {{ it.price | currency }} </td>
+      </ng-container>
+
+      <!-- Quantity -->
+      <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef> Qty </th>
+        <td mat-cell *matCellDef="let it"> {{ it.quantity }} </td>
+      </ng-container>
+
+      <!-- Total -->
+      <ng-container matColumnDef="total">
+        <th mat-header-cell *matHeaderCellDef> Total </th>
+        <td mat-cell *matCellDef="let it"> {{ it.price * it.quantity | currency }} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+
+  <!-- Mobile Cards -->
+  <div class="mobile-view" *ngIf="cartItems.length > 0">
+    <mat-card *ngFor="let it of cartItems" class="checkout-item">
+      <div class="product-cell">
+        <img [src]="it.imageUrl" alt="{{ it.name }}" class="product-img" />
+        <div>
+          <h3>{{ it.name }}</h3>
+          <p>Price: {{ it.price | currency }}</p>
+          <p>Qty: {{ it.quantity }}</p>
+          <p>Total: {{ it.price * it.quantity | currency }}</p>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+
+  <!-- Checkout Summary -->
+  <mat-card *ngIf="cartItems.length > 0" class="checkout-summary">
+    <h3>Order Summary</h3>
+    <p class="summary-total">Total: {{ total | currency }}</p>
+
+    <mat-form-field appearance="outline" class="provider-select">
+      <mat-label>Payment Provider</mat-label>
+      <mat-select [(value)]="selectedProvider">
+        <mat-option *ngFor="let p of providers" [value]="p">{{ p }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" class="checkout-btn"
+            [disabled]="loading" (click)="placeOrder()">
+      {{ loading ? 'Processing...' : 'Place Order & Pay' }}
+    </button>
+  </mat-card>
+</div>

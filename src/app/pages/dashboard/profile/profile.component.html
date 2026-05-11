@@ -1,0 +1,32 @@
+<mat-card class="profile-card">
+  <div class="profile-grid">
+    <!-- Profile Info -->
+    <div class="profile-section profile-info" *ngIf="user">
+      <div class="profile-banner">
+        <div class="avatar">
+          <img src="assets/avatar.png" alt="Avatar" />
+        </div>
+        <h2>{{ user.username }}</h2>
+        <p>{{ user.email }}</p>
+      </div>
+    </div>
+
+    <!-- Change Password -->
+    <div class="profile-section">
+      <h2>Change Password</h2>
+      <form [formGroup]="pwd" class="grid" (ngSubmit)="changePwd()">
+        <mat-form-field appearance="outline">
+          <mat-label>Current Password</mat-label>
+          <input matInput type="password" formControlName="currentPassword" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>New Password</mat-label>
+          <input matInput type="password" formControlName="newPassword" />
+        </mat-form-field>
+
+        <button mat-flat-button color="primary">Change</button>
+      </form>
+    </div>
+  </div>
+</mat-card>

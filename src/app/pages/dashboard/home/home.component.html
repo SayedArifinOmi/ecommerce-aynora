@@ -1,0 +1,32 @@
+
+<div class="home-container">
+  <div class="hero">
+    <h1>Welcome to Aynora</h1>
+    <br>
+    
+    <p>Find your perfect timepiece – Luxury, Classic & Sport Watches.</p>
+    <!--<button mat-raised-button color="primary">Shop Now</button> -->
+  </div>
+
+  <h2 class="section-title">Featured Watches</h2>
+
+  <div class="products-grid">
+    <mat-card *ngFor="let product of featuredProducts" class="product-card">
+      <img mat-card-image
+           [src]="product.imageUrl || 'assets/placeholder-watch.jpg'"
+           [alt]="product.name">
+      <mat-card-content>
+        <h3>{{ product.name }}</h3>
+        <p class="price">{{ product.price | currency }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+  <button mat-stroked-button color="accent" [routerLink]="['/dashboard/product-details', product.id]">
+   View
+  </button>
+  <button mat-raised-button color="primary" (click)="buyNow(product.id, 1)">Buy</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
+

@@ -1,0 +1,26 @@
+<mat-card class="about-card">
+
+    <mat-card-title>About Our Store</mat-card-title>
+  <mat-card-content>
+    <p>
+      Welcome to Aynora – your trusted online destination for premium quality watches and accessories.
+      Our mission is to deliver top-notch products with the best shopping experience.
+    </p>
+  </mat-card-content>
+</mat-card>
+
+
+<div class="team-section">
+  <h2>Meet Our Team</h2>
+  <mat-grid-list cols="3" rowHeight="1:1" gutterSize="16px" *ngIf="teamMembers.length">
+    <mat-grid-tile *ngFor="let member of teamMembers">
+      <mat-card class="team-card">
+        <img mat-card-image [src]="member.photo" />
+        <mat-card-content>
+          <h3>{{ member.name }}</h3>
+          <p>{{ member.role }}</p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

@@ -1,0 +1,57 @@
+<mat-card class="my-orders-card">
+  <mat-card-title>My Orders</mat-card-title>
+  <mat-card-content>
+
+    <div *ngIf="orders.length === 0" class="empty-state">
+      <mat-icon>shopping_bag</mat-icon>
+      <p>You have no orders yet.</p>
+    </div>
+
+    <table mat-table [dataSource]="orders" class="mat-elevation-z2 full-width-table" *ngIf="orders.length > 0">
+
+      <!-- Order ID -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Order ID </th>
+        <td mat-cell *matCellDef="let o"> {{ o.id }} </td>
+      </ng-container>
+
+      <!-- Date -->
+      <ng-container matColumnDef="createdAt">
+        <th mat-header-cell *matHeaderCellDef> Date </th>
+        <td mat-cell *matCellDef="let o"> {{ o.createdAt | date:'short' }} </td>
+      </ng-container>
+
+      <!-- Total -->
+      <ng-container matColumnDef="total">
+        <th mat-header-cell *matHeaderCellDef> Total </th>
+        <td mat-cell *matCellDef="let o"> {{ o.total | currency }} </td>
+      </ng-container>
+
+      <!-- Status -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let o">
+          <span class="status-chip" [ngClass]="o.status.toLowerCase()">
+            {{ o.status }}
+          </span>
+        </td>
+      </ng-container>
+
+      <!-- Items -->
+      <ng-container matColumnDef="items">
+        <th mat-header-cell *matHeaderCellDef> Items </th>
+        <td mat-cell *matCellDef="let o">
+          <ul class="order-items">
+            <li *ngFor="let i of o.items">
+              {{ i.productName }} x{{ i.quantity }}
+            </li>
+          </ul>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="['id','createdAt','total','status','items']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['id','createdAt','total','status','items'];"></tr>
+    </table>
+
+  </mat-card-content>
+</mat-card>

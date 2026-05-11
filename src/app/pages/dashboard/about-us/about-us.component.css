@@ -1,0 +1,130 @@
+/* =============== Global Container =============== */
+:host {
+  display: block;
+  background: linear-gradient(135deg, #f5f7fa, #e9eff5);
+  min-height: 100vh;
+  padding: 50px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* =============== About Card =============== */
+.about-card {
+  max-width: 1000px;
+  margin: 0 auto 60px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+}
+
+.about-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.about-card mat-card-title {
+  display: block;              
+  text-align: center;           
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+}
+
+
+.about-card p {
+  margin-top: 20px;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  color: #333;
+  text-align: justify;
+}
+
+/* =============== Team Section =============== */
+.team-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.team-section h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #1a1a1a;
+}
+
+.team-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.team-card img {
+  border-radius: 50%;
+  height: 140px;
+  width: 140px;
+  object-fit: cover;
+  margin: 15px auto;
+  display: block;
+  border: 4px solid #f0f0f0;
+  transition: transform 0.3s ease;
+}
+
+.team-card:hover img {
+  transform: scale(1.08);
+}
+
+.team-card h3 {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  color: #222;
+  font-weight: 600;
+}
+
+.team-card p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 5px;
+}
+
+/* =============== Responsive =============== */
+@media (max-width: 900px) {
+  .about-card {
+    padding: 20px;
+  }
+
+  .team-card img {
+    height: 120px;
+    width: 120px;
+  }
+
+  .team-section h2 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .team-card {
+    padding: 15px;
+  }
+
+  .team-card img {
+    height: 100px;
+    width: 100px;
+  }
+
+  .about-card mat-card-title {
+    font-size: 1.6rem;
+  }
+}

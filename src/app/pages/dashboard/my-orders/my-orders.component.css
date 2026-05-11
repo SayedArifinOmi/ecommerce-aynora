@@ -1,0 +1,67 @@
+.my-orders-card {
+  margin: 20px auto;
+  padding: 10px;
+  max-width: 1000px;
+}
+
+.full-width-table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+.mat-header-cell {
+  font-weight: 600;
+  background: #f5f5f5;
+}
+
+.mat-cell, .mat-header-cell {
+  padding: 12px;
+}
+
+.empty-state {
+  text-align: center;
+  color: #888;
+  padding: 40px 0;
+
+  mat-icon {
+    font-size: 48px;
+    color: #bbb;
+    display: block;
+    margin: 0 auto 10px;
+  }
+}
+
+.order-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+}
+
+/* Status badge styles */
+.status-chip {
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.status-chip.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status-chip.paid {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status-chip.cancelled {
+  background: #f8d7da;
+  color: #721c24;
+}

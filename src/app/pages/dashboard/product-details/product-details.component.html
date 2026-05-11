@@ -1,0 +1,28 @@
+
+<div class="home-container">
+  <div class="hero">
+      <div class="logo">
+      <img src="assets/logo.png" alt="WatchStore Logo" />
+      </div>
+    <mat-nav-list>
+    <p>Find your perfect timepiece – Luxury, Classic & Sport Watches.</p>
+    
+ </mat-nav-list>
+  </div>
+<mat-card *ngIf="product">
+  <img mat-card-image [src]="product.imageUrl" alt="{{ product.name }}">
+  <mat-card-content>
+    <h2>{{ product.name }}</h2>
+    <p>Brand: {{ product.brand }}</p>
+    <p>Price: {{ product.price | currency }}</p>
+    <p>Stock: {{ product.stock }}</p>
+    <mat-form-field appearance="outline">
+      <mat-label>Quantity</mat-label>
+      <input matInput type="number" [(ngModel)]="quantity" min="1" [max]="product.stock">
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="buyNow()">Buy</button>
+  </mat-card-actions>
+</mat-card>
+        
