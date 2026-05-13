@@ -29,8 +29,8 @@ export class LandingComponent implements OnInit {
   heroPills = ['Free Delivery', 'Authentic Products', 'Easy Returns'];
 
   heroStats = [
-    { value: '30+',  label: 'Products'  },
-    { value: '3K+',  label: 'Customers' },
+    { value: '50+',  label: 'Products'  },
+    { value: '5K+',  label: 'Customers' },
     { value: '4.9★',  label: 'Rating'    },
     { value: '2-Day', label: 'Delivery'  },
   ];
@@ -45,15 +45,15 @@ export class LandingComponent implements OnInit {
     '1000+ Happy Customers',
   ];
 
-  // ── Categories ──
-  categories = [
-    { name: 'Luxury',       icon: '👑', count: 48 },
-    { name: 'Classic',      icon: '🕰️', count: 72 },
-    { name: 'Sport',        icon: '🏃', count: 35 },
-    { name: 'New Arrivals', icon: '✨', count: 24 },
-    { name: 'Sale',         icon: '🏷️', count: 60 },
-    { name: 'Gifts',        icon: '🎁', count: 18 },
-  ];
+   // ── Categories ──
+categories = [
+  { name: 'Luxury ',   icon: '💎', count: '20+' },
+  { name: 'Classic Edition',  icon: '🕰️', count: '25+' },
+  { name: 'Sport Collection', icon: '⌚', count: '15+' },
+  { name: 'New Arrivals',     icon: '✨', count: '10+' },
+  { name: 'Best Sellers',     icon: '🔥', count: '40+' },
+  { name: 'Gift Collection',  icon: '🎁', count: '10+' },
+];
 
   // ── Trust / Features bar ──
   features = [
@@ -83,6 +83,7 @@ export class LandingComponent implements OnInit {
       date:  'May 2026',
       color: 'linear-gradient(135deg,#4a9c6d,#7abf9a)'
     },
+    
   ];
 
   constructor(

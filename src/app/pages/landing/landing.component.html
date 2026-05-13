@@ -49,13 +49,13 @@
         <span class="eyebrow-pulse"></span>
         <span>New Collection 2026</span>
         <span class="eyebrow-divider">|</span>
-        <span class="eyebrow-muted">Premium Timepieces</span>
+        <span class>Premium Timepieces</span>
       </div>
 
       <div class="hero-headline-wrap">
     <h1 class="hero-h1">
-  <span class="h1-line h1-main">Wear Your</span>
-  <span class="h1-line h1-main">Signature Style</span>
+<span class="h1-line h1-main">𝒲𝑒𝒶𝓇 𝒴𝑜𝓊𝓇</span>
+<span class="h1-line h1-main">𝒮𝒾𝑔𝓃𝒶𝓉𝓊𝓇𝑒 𝒮𝓉𝓎𝓁𝑒</span>
 </h1>
         <div class="hero-deco">
           <div class="deco-line"></div>
@@ -88,8 +88,8 @@
         </div>
       </div>
 
-    <p class="hero-sub">
-  Discover luxury timepieces crafted for those who value elegance, precision and timeless style.
+   <p class="hero-sub">
+𝘾𝙧𝙖𝙛𝙩𝙚𝙙 𝙛𝙤𝙧 𝙚𝙡𝙚𝙜𝙖𝙣𝙘𝙚, 𝙗𝙪𝙞𝙡𝙩 𝙛𝙤𝙧 𝙩𝙞𝙢𝙚𝙡𝙚𝙨𝙨 𝙨𝙩𝙮𝙡𝙚
 </p>
 
       <div class="hero-pills">
@@ -369,23 +369,28 @@
         to your inbox. No spam ever.
       </p>
 
-      <div class="nl-form-wrap">
-        <mat-form-field class="nl-field" appearance="outline">
-          <mat-label>Email address</mat-label>
-          <input matInput
-                 type="email"
-                 placeholder="you@example.com"
-                 [(ngModel)]="newsletterEmail"
-                 autocomplete="email">
-          <mat-icon matPrefix class="nl-input-icon">mail</mat-icon>
-        </mat-form-field>
-        <button class="nl-submit-btn"
-                (click)="subscribeNewsletter(newsletterEmail)"
-                matRipple>
-          Subscribe
-          <mat-icon class="btn-icon">send</mat-icon>
-        </button>
-      </div>
+     <div class="nl-form-wrap">
+  <mat-form-field class="nl-field" appearance="outline">
+    <mat-label>Email address</mat-label>
+    <input
+      matInput
+      type="email"
+      placeholder="you@example.com"
+      [(ngModel)]="newsletterEmail"
+      autocomplete="email"
+    />
+    <mat-icon matPrefix class="nl-input-icon">mail</mat-icon>
+  </mat-form-field>
+
+  <button
+    class="nl-submit-btn"
+    (click)="subscribeNewsletter(newsletterEmail)"
+    matRipple
+  >
+    Subscribe
+    <mat-icon class="btn-icon">send</mat-icon>
+  </button>
+</div>
 
       <p class="nl-privacy">
         <mat-icon class="privacy-icon">lock</mat-icon>
@@ -404,10 +409,10 @@
   <img src="assets/logo.png" class="brand-logo" alt="Aynora">
   <span class="logo-text"></span>
 </div>
-          <p class="f-about">
+          <!--<p class="f-about">
            Premium timepieces for every occasion. Quality you can trust, style you
             will love, delivered across Bangladesh.
-          </p>
+          </p> -->
          <div class="f-socials">
   <a class="soc-btn" href="" aria-label="Facebook">
     <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" class="soc-logo">
@@ -416,18 +421,28 @@
   <a class="soc-btn" href="#" aria-label="Instagram">
      <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram" class="soc-logo">
   </a>
+   <a class="soc-btn" href="https://wa.me/8801XXXXXXXXX" target="_blank" aria-label="WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="soc-logo">
+</a>
  
 
   <a class="soc-btn" href="#" aria-label="X (Twitter)">
     <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/X_logo_2023_original.svg" class="soc-logo">
   </a>
 
-   <a class="soc-btn" href="https://wa.me/8801XXXXXXXXX" target="_blank" aria-label="WhatsApp">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="soc-logo">
+  
+<a class="soc-btn" href="https://www.youtube.com/" target="_blank" aria-label="YouTube">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" alt="YouTube" class="soc-logo">
 </a>
 <a class="soc-btn" href="https://t.me/yourusername" target="_blank" aria-label="Telegram">
   <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" class="soc-logo">
 </a>
+ 
+<a class="soc-btn" href="https://www.pinterest.com/" target="_blank" aria-label="Pinterest">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png" alt="Pinterest" class="soc-logo">
+</a>
+
+
 </div>
         </div>
 
@@ -486,9 +501,9 @@
 
     <div class="footer-bottom">
       <div class="footer-bottom-inner">
-        <p class="f-copy"> <strong>© 2026 - All Right Reserved by Aynora </strong></p>
+        
         <div class="developer-credit">
-          <span class="developer-credit"> <strong>✧ Designed & Developed by 𝕺𝖒𝖎𝕯𝖊𝖛 ✧</strong></span>
+          <span class="developer-credit"> <strong>© 2026-All Right Reserved || Developed by 𝕺𝖒𝖎𝕯𝖊𝖛</strong></span>
         
         </div>
       </div>
