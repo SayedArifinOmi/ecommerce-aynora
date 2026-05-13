@@ -10,6 +10,7 @@ const LOCAL_KEY = 'aynora_cart_v1';
 
 @Injectable({ providedIn: 'root' })
 export class CartService {
+  
   private items: CartItem[] = [];
   private subject = new BehaviorSubject<CartItem[]>([]);
   cart$ = this.subject.asObservable();
@@ -20,6 +21,9 @@ export class CartService {
     this.items = raw ? JSON.parse(raw) : [];
     this.subject.next(this.items);
   }
+  getItems(): CartItem[] {
+  return [...this.items];
+}
 
   private saveLocal() {
     localStorage.setItem(LOCAL_KEY, JSON.stringify(this.items));

@@ -1,0 +1,498 @@
+
+<nav class="nav" [class.scrolled]="isScrolled">
+  <div class="nav-inner">
+
+    <div class="nav-logo">
+  <img src="assets/logo.png" class="brand-logo" alt="Aynora">
+  <span class="logo-text"></span>
+</div>
+
+    <div class="nav-links">
+      <a href="#"                class="nav-link"><span>Home</span></a>
+      <a href="#categories"      class="nav-link"><span>Categories</span></a>
+      <a href="#productsSection" class="nav-link"><span>Products</span></a>
+      <a href="#contact"         class="nav-link"><span>Contact</span></a>
+    </div>
+
+    <div class="nav-right">
+      <button class="nav-cart" routerLink="/dashboard/cart">
+        <mat-icon class="nav-cart-icon">shopping_bag</mat-icon>
+        Cart
+      </button>
+      <button class="nav-login" routerLink="/login">Login</button>
+    </div>
+
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="landing-wrap">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="bg-orb bg-orb-1"></div>
+      <div class="bg-orb bg-orb-2"></div>
+      <div class="bg-orb bg-orb-3"></div>
+      <div class="bg-noise"></div>
+    </div>
+    <div class="particles-wrap">
+      <div class="particle" *ngFor="let b of bubbles" [ngStyle]="b"></div>
+    </div>
+    <div class="hero-grid"></div>
+
+    <div class="hero-content">
+
+      <div class="hero-eyebrow">
+        <span class="eyebrow-pulse"></span>
+        <span>New Collection 2026</span>
+        <span class="eyebrow-divider">|</span>
+        <span class="eyebrow-muted">Premium Timepieces</span>
+      </div>
+
+      <div class="hero-headline-wrap">
+    <h1 class="hero-h1">
+  <span class="h1-line h1-main">Wear Your</span>
+  <span class="h1-line h1-main">Signature Style</span>
+</h1>
+        <div class="hero-deco">
+          <div class="deco-line"></div>
+          <span class="deco-diamond">◆</span>
+           <span class="deco-diamond">◆</span>
+            <span class="deco-diamond">◆</span>
+             <span class="deco-diamond">◆</span>
+              <span class="deco-diamond">◆</span>
+               <span class="deco-diamond">◆</span>
+                <span class="deco-diamond">◆</span>
+                 <span class="deco-diamond">◆</span>
+                  <span class="deco-diamond">◆</span>
+                   <span class="deco-diamond">◆</span>
+                    <span class="deco-diamond">◆</span>
+                     <span class="deco-diamond">◆</span>
+                      <span class="deco-diamond">◆</span>
+                       <span class="deco-diamond">◆</span>
+                        <span class="deco-diamond">◆</span>
+                         <span class="deco-diamond">◆</span>
+                          <span class="deco-diamond">◆</span>
+                           <span class="deco-diamond">◆</span>
+                            <span class="deco-diamond">◆</span>
+                             <span class="deco-diamond">◆</span>
+                              <span class="deco-diamond">◆</span>
+                               <span class="deco-diamond">◆</span>
+                                <span class="deco-diamond">◆</span>
+                                 <span class="deco-diamond">◆</span>
+                                 
+          <div class="deco-line"></div>
+        </div>
+      </div>
+
+    <p class="hero-sub">
+  Discover luxury timepieces crafted for those who value elegance, precision and timeless style.
+</p>
+
+      <div class="hero-pills">
+        <div class="pill" *ngFor="let p of heroPills">
+          <mat-icon class="pill-icon">check_circle</mat-icon>{{ p }}
+        </div>
+      </div>
+
+      <div class="hero-btns">
+        <button class="btn-primary" routerLink="/login">
+          <span>Shop Now</span>
+          <mat-icon class="btn-icon">arrow_forward</mat-icon>
+          <div class="btn-shine"></div>
+        </button>
+        <button class="btn-ghost" (click)="scrollToProducts()">
+          Explore Collection
+          <mat-icon class="btn-icon">keyboard_arrow_down</mat-icon>
+        </button>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item" *ngFor="let s of heroStats">
+          <span class="stat-value">{{ s.value }}</span>
+          <span class="stat-label">{{ s.label }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <span class="scroll-text"></span>
+      <div class="scroll-track"><div class="scroll-dot"></div></div>
+    </div>
+  </section>
+
+  <!-- ===== TICKER ===== -->
+  <div class="ticker">
+    <div class="ticker-fade ticker-fade-left"></div>
+    <div class="ticker-track">
+      <div class="ticker-inner">
+        <span class="t-item" *ngFor="let t of tickerItems">
+          <span class="t-gem">◆</span>{{ t }}
+        </span>
+        <span class="t-item" *ngFor="let t of tickerItems">
+          <span class="t-gem">◆</span>{{ t }}
+        </span>
+      </div>
+    </div>
+    <div class="ticker-fade ticker-fade-right"></div>
+  </div>
+
+  <!-- ===== CATEGORIES ===== -->
+  <section class="sec" id="categories">
+    <div class="sec-hdr">
+      <div class="sec-label-wrap">
+        <div class="sec-label-line"></div>
+        <div class="sec-label-line"></div>
+      </div>
+      <h2 class="sec-title">Shop Categories</h2>
+      <p class="sec-sub">Find your perfect timepiece from our curated collections</p>
+    </div>
+
+    <div class="cat-grid">
+      <div class="cat-card"
+           *ngFor="let c of categories; let i = index"
+           [style.animation-delay]="i * 0.1 + 's'"
+           (click)="scrollToProducts()"
+           matRipple
+           [matRippleColor]="'rgba(196,154,60,0.12)'">
+        <div class="cat-bg-glow"></div>
+        <div class="cat-inner">
+          <div class="cat-icon-wrap">
+            <span class="cat-icon">{{ c.icon }}</span>
+          </div>
+          <div class="cat-info">
+            <div class="cat-name">{{ c.name }}</div>
+            <div class="cat-count">{{ c.count }} items</div>
+          </div>
+          <mat-icon class="cat-arrow-icon">arrow_forward</mat-icon>
+        </div>
+        <div class="cat-border-anim"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRUST BAR ===== -->
+  <div class="trust-bar">
+    <div class="trust-inner">
+      <div class="trust-item" *ngFor="let f of features">
+        <div class="trust-icon-ring">
+          <span class="trust-emoji">{{ f.icon }}</span>
+        </div>
+        <div class="trust-copy">
+          <div class="trust-title">{{ f.title }}</div>
+          <div class="trust-desc">{{ f.desc }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PRODUCTS ===== -->
+  <section class="sec" id="productsSection">
+    <div class="sec-hdr">
+      <div class="sec-label-wrap">
+        <div class="sec-label-line"></div>
+        
+        <div class="sec-label-line"></div>
+      </div>
+      <h2 class="sec-title">Featured Products</h2>
+      <p class="sec-sub">Curated selection of our finest timepieces</p>
+    </div>
+
+    <!-- Loading spinner -->
+    <div class="empty-state" *ngIf="featuredProducts.length === 0">
+      <mat-spinner diameter="44" class="gold-spinner"></mat-spinner>
+      <p class="loading-text">Loading products…</p>
+    </div>
+
+    <div class="prod-grid">
+      <mat-card class="prod-card"
+                *ngFor="let product of featuredProducts; let i = index"
+                [style.animation-delay]="i * 0.12 + 's'">
+
+        <div class="prod-badge" *ngIf="i < 2">
+          <span *ngIf="i === 0">🏆 Best Seller</span>
+          <span *ngIf="i === 1">🔥 Trending</span>
+        </div>
+
+        <div class="prod-img-wrap">
+          <img [src]="product.imageUrl || 'assets/placeholder-watch.jpg'"
+               [alt]="product.name"
+               class="prod-img">
+          <div class="prod-overlay">
+            <button class="qv-btn"
+                    [routerLink]="['/dashboard/product-details', product.id]"
+                    matRipple>
+              <mat-icon style="font-size:15px;width:15px;height:15px;">visibility</mat-icon>
+              Quick View
+            </button>
+          </div>
+          <div class="prod-corner-deco"></div>
+        </div>
+
+        <mat-card-content class="prod-body">
+          <div class="prod-meta">
+            <span class="prod-cat">Watch Collection</span>
+            <div class="prod-stars">
+              <mat-icon class="star-icon" *ngFor="let s of [1,2,3,4,5]">star</mat-icon>
+            </div>
+          </div>
+          <h3 class="prod-name">{{ product.name }}</h3>
+          <mat-divider class="prod-divider"></mat-divider>
+          <div class="prod-foot">
+            <div class="prod-price">
+              <span class="price-symbol">৳</span>
+              <span class="price-amount">{{ product.price | number }}</span>
+            </div>
+            <div class="prod-actions">
+              <button class="btn-view-icon"
+                      [routerLink]="['/dashboard/product-details', product.id]"
+                      matTooltip="View Details"
+                      matTooltipPosition="above">
+                <mat-icon>visibility</mat-icon>
+              </button>
+              <button class="btn-buy"
+                      (click)="buyNow(product.id, 1)"
+                      matRipple>
+                Add to Cart
+                <mat-icon class="btn-icon-sm">shopping_cart</mat-icon>
+              </button>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+
+  <!-- ===== PROMO BANNER ===== -->
+  <div class="promo-section">
+    <div class="promo-box">
+      <div class="promo-glow-1"></div>
+      <div class="promo-glow-2"></div>
+
+      <div class="promo-left">
+        <p class="promo-p"><strong>Limited Time Offer </strong></p>
+       
+        <h2 class="promo-h">
+          Get <span class="promo-highlight">10% Off</span><br>Your First Order
+        </h2>
+        <p class="promo-p">
+          Join thousands of satisfied customers. Use the exclusive code at checkout
+          and experience premium quality at an unbeatable price.
+        </p>
+
+        <div class="promo-code-wrap">
+          <span class="code-label">Promo Code</span>
+          <div class="code-box">
+            <span class="code-value">AYNORA10</span>
+            <button class="code-copy-btn"
+                    (click)="copyPromoCode()"
+                    matRipple
+                    [matRippleColor]="'rgba(196,154,60,0.2)'"
+                    matTooltip="Copy to clipboard">
+              <mat-icon style="font-size:15px;width:15px;height:15px;">content_copy</mat-icon>
+              Copy
+            </button>
+          </div>
+        </div>
+
+        <button class="btn-primary" routerLink="/login">
+          <span>Claim Your Discount</span>
+          <mat-icon class="btn-icon">arrow_forward</mat-icon>
+          <div class="btn-shine"></div>
+        </button>
+      </div>
+
+      <div class="promo-right">
+        <div class="promo-visual">
+          <div class="promo-ring promo-ring-1"></div>
+          <div class="promo-ring promo-ring-2"></div>
+          <div class="promo-ring promo-ring-3"></div>
+          <div class="promo-watch-emoji">⌚</div>
+          <div class="promo-badge-float">10%<br><span>OFF</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="sec">
+    <div class="sec-hdr">
+      <div class="sec-label-wrap">
+        <div class="sec-label-line"></div>
+        <span class="sec-label">Reviews</span>
+        <div class="sec-label-line"></div>
+      </div>
+      <h2 class="sec-title">What Customers Say</h2>
+      <p class="sec-sub">Real reviews from our valued customers</p>
+    </div>
+
+    <div class="test-grid">
+      <mat-card class="test-card"
+                *ngFor="let t of testimonials; let i = index"
+                [style.animation-delay]="i * 0.15 + 's'">
+        <div class="test-quote-mark">"</div>
+        <div class="t-stars">
+          <mat-icon class="star-icon" *ngFor="let s of [1,2,3,4,5]">star</mat-icon>
+        </div>
+        <mat-card-content>
+          <p class="t-text">{{ t.text }}</p>
+        </mat-card-content>
+        <mat-card-footer class="t-footer">
+          <div class="t-author">
+            <div class="t-avatar" [ngStyle]="{'background': t.color}">
+              {{ t.name[0] }}
+            </div>
+            <div class="t-info">
+              <div class="t-name">{{ t.name }}</div>
+              <div class="t-date">Verified Buyer · {{ t.date }}</div>
+            </div>
+            <mat-icon class="t-verified-icon">verified</mat-icon>
+          </div>
+        </mat-card-footer>
+      </mat-card>
+    </div>
+  </section>
+
+  <!-- ===== NEWSLETTER ===== -->
+  <div class="nl-section">
+    <div class="nl-bg-orb"></div>
+    <div class="nl-inner">
+      <div class="nl-icon-ring">
+        <mat-icon class="nl-mat-icon">mail_outline</mat-icon>
+      </div>
+      <h2 class="nl-h">Stay in the Loop<span class="nl-gold"></span></h2>
+      <p class="nl-p">
+        Get exclusive deals, new arrivals, and insider access delivered straight
+        to your inbox. No spam ever.
+      </p>
+
+      <div class="nl-form-wrap">
+        <mat-form-field class="nl-field" appearance="outline">
+          <mat-label>Email address</mat-label>
+          <input matInput
+                 type="email"
+                 placeholder="you@example.com"
+                 [(ngModel)]="newsletterEmail"
+                 autocomplete="email">
+          <mat-icon matPrefix class="nl-input-icon">mail</mat-icon>
+        </mat-form-field>
+        <button class="nl-submit-btn"
+                (click)="subscribeNewsletter(newsletterEmail)"
+                matRipple>
+          Subscribe
+          <mat-icon class="btn-icon">send</mat-icon>
+        </button>
+      </div>
+
+      <p class="nl-privacy">
+        <mat-icon class="privacy-icon">lock</mat-icon>
+        We respect your privacy.Unsubscribe anytime.
+      </p>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="contact">
+    <div class="footer-top">
+      <div class="footer-inner">
+
+        <div class="f-brand">
+         <div class="footer-logo">
+  <img src="assets/logo.png" class="brand-logo" alt="Aynora">
+  <span class="logo-text"></span>
+</div>
+          <p class="f-about">
+           Premium timepieces for every occasion. Quality you can trust, style you
+            will love, delivered across Bangladesh.
+          </p>
+         <div class="f-socials">
+  <a class="soc-btn" href="" aria-label="Facebook">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" class="soc-logo">
+  </a>
+
+  <a class="soc-btn" href="#" aria-label="Instagram">
+     <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram" class="soc-logo">
+  </a>
+ 
+
+  <a class="soc-btn" href="#" aria-label="X (Twitter)">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/X_logo_2023_original.svg" class="soc-logo">
+  </a>
+
+   <a class="soc-btn" href="https://wa.me/8801XXXXXXXXX" target="_blank" aria-label="WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="soc-logo">
+</a>
+<a class="soc-btn" href="https://t.me/yourusername" target="_blank" aria-label="Telegram">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" class="soc-logo">
+</a>
+</div>
+        </div>
+
+        <div class="f-col">
+          <h4 class="f-head">Quick Links</h4>
+          <ul class="f-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a routerLink="/login">My Account</a></li>
+          </ul>
+        </div>
+
+        <div class="f-col">
+          <h4 class="f-head">Categories</h4>
+          <ul class="f-links">
+            <li><a href="#">Luxury Watches</a></li>
+            <li><a href="#">Classic Collection</a></li>
+            <li><a href="#">Sport Series</a></li>
+            <li><a href="#">New Arrivals</a></li>
+            <li><a href="#">Sale Items</a></li>
+          </ul>
+        </div>
+
+        <div class="f-col">
+          <h4 class="f-head">Support</h4>
+          <ul class="f-links">
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Return Policy</a></li>
+            <li><a href="#">Track Order</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <div class="f-col">
+          <h4 class="f-head">Contact Us</h4>
+          <ul class="f-contact">
+            <li>
+              <mat-icon class="contact-icon">location_on</mat-icon>
+              Dhaka, Bangladesh
+            </li>
+            <li>
+              <mat-icon class="contact-icon">phone</mat-icon>
+              +880 1709000936
+            </li>
+            <li>
+              <mat-icon class="contact-icon">email</mat-icon>
+              aynoraofficial@gmail.com
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <p class="f-copy"> <strong>© 2026 - All Right Reserved by Aynora </strong></p>
+        <div class="developer-credit">
+          <span class="developer-credit"> <strong>✧ Designed & Developed by 𝕺𝖒𝖎𝕯𝖊𝖛 ✧</strong></span>
+        
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
