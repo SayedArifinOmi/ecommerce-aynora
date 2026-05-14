@@ -26,7 +26,7 @@ export class LandingComponent implements OnInit {
   }));
 
   // ── Hero content ──
-  heroPills = ['Free Delivery', 'Authentic Products', 'Easy Returns'];
+  heroPills = ['Free Delivery','Authentic Products','Easy Returns'];
 
   heroStats = [
     { value: '50+',  label: 'Products'  },
